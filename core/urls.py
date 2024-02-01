@@ -17,7 +17,11 @@ from django.contrib import admin
 from django.urls import path
 
 from core import views
+from rest_framework.routers import DefaultRouter
 
-urlpatterns = [
-    path('', views.index),
-]
+router = DefaultRouter()
+router.register('exams', views.ExamViewSet, basename='exams')
+
+urlpatterns = []
+
+urlpatterns += router.urls
