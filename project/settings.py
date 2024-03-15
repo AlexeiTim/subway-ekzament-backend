@@ -25,8 +25,13 @@ SECRET_KEY = 'django-insecure-odpg5cq7i+7@ki!ry4#i_!lh%aqi04tv&_@d_s#!21g*87#%ps
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-CORS_ALLOW_ALL_ORIGINS = True
+# ALLOWED_HOSTS = ['localhost:5173', '127.0.0.1', 'localhost']
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:5173",
+    "http://127.0.0.1:8000",
+]
 
 # Application definition
 
@@ -47,6 +52,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -82,17 +88,24 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': "django.db.backends.postgresql",
-        'HOST': "aws-0-eu-central-1.pooler.supabase.com",
-        'NAME': "postgres",
-        'USER': "postgres.zuwzeeovhwbfigqxleqx",
-        'PASSWORD': "7427999qQ$%",
-        'PORT': "6543",
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': "django.db.backends.postgresql",
+            'HOST': "aws-0-eu-central-1.pooler.supabase.com",
+            'NAME': "postgres",
+            'USER': "postgres.zuwzeeovhwbfigqxleqx",
+            'PASSWORD': "7427999qQ$%",
+            'PORT': "5432",
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
