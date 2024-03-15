@@ -19,8 +19,8 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.authtoken')),
+    path('api/', include('djoser.urls')),
+    path('api/', include('djoser.urls.authtoken')),
     path('', views.index, name='index'),
     path('api/', include('core.urls'))
 ]
