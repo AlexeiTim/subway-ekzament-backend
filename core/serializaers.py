@@ -7,3 +7,9 @@ class ExamSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Exam
         fields = '__all__'
+
+
+class ExamThemeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Theme
+        fields = ['id', 'title']
