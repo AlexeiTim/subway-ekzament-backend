@@ -21,7 +21,8 @@ from core import views
 router = DefaultRouter()
 router.register(r'exams', views.ExamViewSet, basename='exams')
 router.register(r'exams/(?P<exam_id>\d+)/themes', views.ExamThemeViewSet, basename='exams_themes')
-
+router.register(r'themes/(?P<theme_id>\d+)/questions', views.QuestionViewSet, basename='questions')
+router.register(r'exams_practice', views.ExamPracticeViewSet, basename='exam_practice')
 urlpatterns = []
 
 urlpatterns += router.urls
