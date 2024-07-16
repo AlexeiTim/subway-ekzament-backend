@@ -7,4 +7,4 @@ tzdata==2023.4
 psycopg2-binary~=2.9.3
 django-cors-headers==4.3.1
 djoser==2.2.2
-django-filters==23.5
+django-filters==24.2
