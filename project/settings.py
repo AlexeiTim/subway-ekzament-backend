@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-odpg5cq7i+7@ki!ry4#i_!lh%aqi04tv&_@d_s#!21g*87#%ps
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+LOCAL_WORKING = False
 ALLOWED_HOSTS = ['*']
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-if DEBUG:
+if LOCAL_WORKING:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
