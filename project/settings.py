@@ -29,7 +29,6 @@ ALLOWED_HOSTS = ['*']
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
     'https://subway-ekzament-backend.onrender.com',
-    '*'
 ]
 CSRF_TRUSTED_ORIGINS = [
     'https://subway-ekzament-backend.onrender.com',
